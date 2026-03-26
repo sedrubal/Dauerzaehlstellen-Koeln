@@ -11,7 +11,7 @@ URL_COUNTER_LIST = f'https://www.eco-visio.net/api/aladdin/1.0.0/pbl/publicwebpa
 URL_COUNTER_DATA = 'https://www.eco-visio.net/api/aladdin/1.0.0/pbl/publicwebpageplus/data'
 DATEN_FOLDER_PATH = 'daten/'
 
-PROXY_URL = os.environ['PROXY_URL']
+PROXY_URL = os.environ.get('PROXY_URL')
 PROXIES = {'http': PROXY_URL, 'https': PROXY_URL}
 
 

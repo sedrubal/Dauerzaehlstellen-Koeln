@@ -19,13 +19,12 @@ def plot_df(df, **kwargs):
 pendlerstrecken = [1, 2, 4, 5, 6, 13]
 freizeitstrecken = [7, 9, 10, 11, 12]
 files = LoadData.load(freizeitstrecken)
-avg_df = pd.DataFrame({"Datum": [], "Zaehlerstand": []})
 
 
 for key, data in files.items():
-    avg_df = avg_df.append(data)
     plot_df(data, label=LoadData.NAMINGS[key], linestyle="dotted", linewidth=1.5)
 
+avg_df = pd.concat(files.values())
 plot_df(avg_df, label="Durchschnitt", linestyle="solid", linewidth=3.0, c="k")
 
 plt.ylim(0)

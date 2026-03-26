@@ -42,13 +42,10 @@ class LoadData:
                 continue
 
             fp = LoadData.__filepath(value)
-            d = pd.read_csv(fp, parse_dates=["Datum"], date_parser=LoadData.__parsedate)
+            d = pd.read_csv(fp, parse_dates=["Datum"], date_format="%d.%m.%Y")
             files[key] = d
 
         return files
-
-    def __parsedate(v):
-        return datetime.datetime.strptime(v, "%d.%m.%Y")
 
     def __filepath(name):
         return f"./daten/{name}.csv"
